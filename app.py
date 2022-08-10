@@ -11,12 +11,14 @@ app.config['MONGO_URL'] = 'mongodb://localhost:27017'
 mongo = pymongo.MongoClient('mongodb://localhost:27017')
 db=mongo['db']
 
+
 @app.route('/')
 def index():
     if 'username' in session:
         return 'You are logged in as' + session['username']
     
     return render_template('index.html')
+
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -30,6 +32,7 @@ def login():
             return redirect(url_for('index'))
 
     return'Invalid username/password combination'
+
 
 @app.route('/register', methods=['POST', 'GET'])
 def register():
@@ -47,6 +50,7 @@ def register():
         return 'That user already exists!'
     
     return render_template('registration.html')
+
 
 if __name__ == "__main__":
     app.secret_key = 'mysecret'
