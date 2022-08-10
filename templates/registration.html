@@ -1,0 +1,20 @@
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div>
+            <form method=POST action="{{ url_for('register')}}">
+                <div class="form-group">
+                    <label for="ExampleInputEmail">Username</label>
+                    <input type="text" class="form-control" name="Email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="ExampleInputPassword">Password</label>
+                    <input type="password" class="form-control" name="pass" placeholder="password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Log In</button>
+            </form>
+            <br>
+        </div>
+    </div>
+</div>
+{% endblock %}
